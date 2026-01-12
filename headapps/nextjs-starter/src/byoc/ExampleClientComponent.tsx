@@ -10,11 +10,11 @@ interface Book {
 
 export default function ExampleClientsideComponent(props: { bold: boolean; books: Book[] }) {
   console.log('comp props', props);
-  
+
   // Ensure books is always an array
-  const books = Array.isArray(props.books) 
-    ? props.books 
-    : props.books 
+  const books = Array.isArray(props.books)
+    ? props.books
+    : props.books
       ? [props.books] // If it's a single object, wrap it in an array
       : [];
 
@@ -25,18 +25,20 @@ export default function ExampleClientsideComponent(props: { bold: boolean; books
         <dt>Rendered on</dt>
         <dd>{typeof window !== 'undefined' ? 'Clientside' : 'Server'}</dd>
         <dt>Data</dt>
-        {books.length > 0
-          ? books.map((book, index) => (
-              <div key={index}>
-                <dt>
-                  {book.title} {book.author} / {book.genre}
-                </dt>
-                <dd>
-                  {book.publication_year} {book.isbn}
-                </dd>
-              </div>
-            ))
-          : <dd>No data</dd>}
+        {books.length > 0 ? (
+          books.map((book, index) => (
+            <div key={index}>
+              <dt>
+                {book.title} {book.author} / {book.genre}
+              </dt>
+              <dd>
+                {book.publication_year} {book.isbn}
+              </dd>
+            </div>
+          ))
+        ) : (
+          <dd>No data</dd>
+        )}
       </dl>
     </>
   );
