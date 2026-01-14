@@ -46,6 +46,9 @@
     "sass-alias": "^1.0.5",
     "sharp": "0.34.3"
   },
+  "overrides": {
+    "@sitecore/byoc": "0.3.2"
+  },
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "~22.9.0",
     "@sitecore-jss/sitecore-jss-dev-tools": "~22.9.0",
